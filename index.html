@@ -40,7 +40,7 @@
     background: #fff;
   }
 
-  /* Left: Invitation image */
+  /* Left: invitation image */
   .invite-container {
     flex: 1;
     display: flex;
@@ -104,7 +104,6 @@
     cursor: pointer;
     font-size: 14px;
     margin-top: 8px;
-    transition: 0.3s;
     display: inline-block;
     text-decoration: none;
     text-align: center;
@@ -120,9 +119,10 @@
     }
     .rsvp {
       width: 100%;
+      max-height: 60vh;
     }
     .invite-container img {
-      max-height: 40vh;
+      max-height: 50vh;
     }
   }
 
@@ -139,7 +139,8 @@
 <div class="wrap">
   <!-- Left: invitation image -->
   <div class="invite-container">
-    <img src="InAInvite.jpg" alt="Wedding Invitation"
+    <!-- Update src to 'Imtiaz_Amaarah_updated.png' if you uploaded it -->
+    <img src="Imtiaz_Amaarah_updated.png" alt="Wedding Invitation"
          onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'fallback\'>Invitation image not found. Check file name and path.</div>'">
   </div>
 
@@ -182,16 +183,16 @@ form.addEventListener('submit', e => {
 
   const msg = `RSVP for Imtiaz & Amaarah:\nName: ${fullname}\nAttending: ${attending}`;
 
-  // Numbers
+  // Numbers to message
   const numbers = ["27748741008", "27832142201"];
 
   // Open WhatsApp chats for each number
   numbers.forEach(phone => {
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-    window.open(url, "_blank");
+    window.open(url, "_blank", "noopener");
   });
 
-  alert("RSVP sent via WhatsApp!");
+  alert("RSVP opened in WhatsApp for both organisers. Please click send in each chat.");
   form.reset();
 });
 </script>
