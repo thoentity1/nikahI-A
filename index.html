@@ -37,6 +37,7 @@
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     min-height: 680px;
+    background: #fff;
   }
 
   /* Left: Invitation image */
@@ -50,7 +51,7 @@
   }
 
   .invite-container img {
-    max-height: 80vh;  /* 80% of viewport height */
+    max-height: 80vh;
     max-width: 100%;
     width: auto;
     height: auto;
@@ -103,6 +104,10 @@
     cursor: pointer;
     font-size: 14px;
     margin-top: 8px;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
   }
 
   .btn:hover {
@@ -117,7 +122,7 @@
       width: 100%;
     }
     .invite-container img {
-      max-height: 40vh; /* smaller on mobile */
+      max-height: 40vh;
     }
   }
 
@@ -154,6 +159,11 @@
 
       <button type="submit" class="btn">Send RSVP via WhatsApp</button>
     </form>
+
+    <!-- Website RSVP link -->
+    <a href="https://thoentity1.github.io/nikahI-A/" target="_blank" class="btn" style="margin-top:12px;">
+      RSVP via Website
+    </a>
   </aside>
 </div>
 
@@ -171,10 +181,17 @@ form.addEventListener('submit', e => {
   }
 
   const msg = `RSVP for Imtiaz & Amaarah:\nName: ${fullname}\nAttending: ${attending}`;
-  const phone = "27748741008"; // Replace with your WhatsApp number
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
 
-  window.open(url, "_blank");
+  // Numbers
+  const numbers = ["27748741008", "27832142201"];
+
+  // Open WhatsApp chats for each number
+  numbers.forEach(phone => {
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+    window.open(url, "_blank");
+  });
+
+  alert("RSVP sent via WhatsApp!");
   form.reset();
 });
 </script>
