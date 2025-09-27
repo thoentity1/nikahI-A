@@ -40,7 +40,6 @@
     background: #fff;
   }
 
-  /* Left: Invitation image */
   .invite-container {
     flex: 1;
     display: flex;
@@ -51,7 +50,7 @@
   }
 
   .invite-container img {
-    max-height: 80vh;
+    max-height: 60vh;
     max-width: 100%;
     width: auto;
     height: auto;
@@ -61,7 +60,6 @@
     display: block;
   }
 
-  /* Right: RSVP panel */
   .rsvp {
     width: 420px;
     background: #fafafa;
@@ -126,7 +124,6 @@
     }
   }
 
-  /* Fallback text */
   .fallback {
     font-size: 16px;
     color: red;
@@ -137,13 +134,11 @@
 <body>
 
 <div class="wrap">
-  <!-- Left: invitation image -->
   <div class="invite-container">
     <img src="InAInvite.jpg" alt="Wedding Invitation"
          onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'fallback\'>Invitation image not found. Check file name and path.</div>'">
   </div>
 
-  <!-- Right: RSVP panel -->
   <aside class="rsvp">
     <h2>RSVP</h2>
     <form id="rsvpForm">
@@ -159,11 +154,6 @@
 
       <button type="submit" class="btn">Send RSVP via WhatsApp</button>
     </form>
-
-    <!-- Website RSVP link -->
-    <a href="https://thoentity1.github.io/nikahI-A/" target="_blank" class="btn" style="margin-top:12px;">
-      RSVP via Website
-    </a>
   </aside>
 </div>
 
@@ -181,11 +171,8 @@ form.addEventListener('submit', e => {
   }
 
   const msg = `RSVP for Imtiaz & Amaarah:\nName: ${fullname}\nAttending: ${attending}`;
-
-  // Numbers
   const numbers = ["27748741008", "27832142201"];
 
-  // Open WhatsApp chats for each number
   numbers.forEach(phone => {
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");
